@@ -1,0 +1,46 @@
+﻿<h3>S1L09 Session 09 <br />Processing data with lists in MVC moving towards data manipulation and processing</h3>
+<hr />
+<div style="max-height: 450px; overflow-y: auto;">
+    <p>
+        Lists are a fundamental data structure used in computer programming to store collections of related data. In ASP.NET MVC, lists are commonly used in conjunction with Models and ViewModels to display data in a view. Models are used to define the structure and behavior of data, while ViewModels are used to combine multiple models into a single view.
+    </p>
+    <h4>Relationship between Models and ViewModels</h4>
+    <p>
+        In ASP.NET MVC, a Model represents a single entity or object and defines its attributes and behavior. A ViewModel, on the other hand, is a composite object that combines multiple models to create a view-specific representation of the data. By using ViewModels, we can simplify the view code and reduce dependencies between the view and the model.
+    </p>
+    <p>The relationship between Models and ViewModels is similar to that of an ERD and the parent-child relationship seen in an associative entity.</p>
+    <p>Just as an ERD describes the relationships between entities in a database, a Model describes the attributes and behaviors of an object in the application. It is the parent entity in this analogy, as it defines the base structure of the object.</p>
+    <p>Similarly, a ViewModel is the child entity that inherits from the Model and defines additional properties or behaviors specific to the view or user interface. It serves as a bridge between the Model and the view, allowing for more customization and flexibility in the user interface.</p>
+    <p>By using a ViewModel, developers can ensure that the Model remains focused on its core attributes and behaviors, while allowing for variations in the presentation and interaction with the user interface. This separation of concerns also allows for easier maintenance and updates, as changes can be made to the ViewModel without affecting the underlying Model.</p>
+    <h4>Working with Lists and jQuery in ASP.NET MVC</h4>
+    <p>
+        jQuery is a popular JavaScript library that can be used to manipulate the DOM and make AJAX requests. It can also be used to work with Lists in ASP.NET MVC. By using jQuery, we can dynamically add, remove, or update items in a List without having to reload the entire page.
+    </p>
+    <h4>Example Code</h4>
+<pre><code>&lt;div id="myList"&gt;
+    &lt;ul&gt;
+        &lt;li&gt;Item 1&lt;/li&gt;
+        &lt;li&gt;Item 2&lt;/li&gt;
+        &lt;li&gt;Item 3&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+<script type="text/javascript">
+    $(document).ready(function () {
+        // Add item to list
+        $("#addItemButton").click(function () {
+            var itemText = $("#newItemText").val();
+            var newItem = "<li>" + itemText + "</li>";
+            $("#myList ul").append(newItem);
+        });
+
+        // Remove item from list
+        $("#removeItemButton").click(function () {
+            $("#myList ul li:last-child").remove();
+        });
+    });
+</script></code></pre>
+
+    <p>
+        In this example, we have a list of items contained in a &lt;ul&gt; element with an ID of "myList". We have two buttons: one to add an item to the list and one to remove the last item from the list. When the "Add Item" button is clicked, we get the value of the input field with ID "newItemText", create a new &lt;li&gt; element with the text of the input value, and append it to the &lt;ul&gt; element. When the "Remove Item" button is clicked, we select the last &lt;li&gt; element in the &lt;ul&gt; and remove it from the DOM.
+    </p>
+</div>
