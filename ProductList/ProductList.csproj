@@ -135,6 +135,7 @@
     <Compile Include="Models\SimpleProductSupplier.cs" />
     <Compile Include="Models\SimpleSupplier.cs" />
     <Compile Include="Models\SimpleSupplierVM.cs" />
+    <Compile Include="Models\Supplier.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -193,6 +194,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
