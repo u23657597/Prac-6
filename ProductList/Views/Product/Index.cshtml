@@ -289,6 +289,72 @@
                 });
             });
 
+                $(document).ready(function () {
+
+                    
+                    $("#addProductButton").click(function () {
+                        var supplierId = $("#supplierDropdown").val();
+                        var categoryId = $("#categoryDropdown").val();
+                        var productId = $("#productDropdown").val();
+                        var value = $("#productNameTextbox").val();
+                        var serial = $("#serialTextbox").val();
+
+                        if (!supplierId || !categoryId || !productId || !value || !serial) {
+                            alert("Please fill in all fields.");
+                            return;
+                        }
+
+                        var newRow = $("<tr></tr>");
+
+                       
+                        newRow.append($("<td></td>").text($("#supplierDropdown option:selected").text()));
+                        newRow.append($("<td></td>").text($("#categoryDropdown option:selected").text()));
+                        newRow.append($("<td></td>").text($("#productDropdown option:selected").text()));
+                        newRow.append($("<td></td>").text(value));
+                        newRow.append($("<td></td>").text(serial));
+
+                        
+                        var actionCell = $("<td></td>");
+                        actionCell.append(
+                            $("<button>Edit</button>").addClass("btn btn-success btn-sm me-1 btn-edit"),
+                            $("<button>Delete</button>").addClass("btn btn-danger btn-sm btn-delete")
+                        );
+                        newRow.append(actionCell);
+
+                        $("#productTable tbody").append(newRow);
+
+                       
+                        $("#supplierDropdown").val("");
+                        $("#categoryDropdown").val("").prop("disabled", true);
+                        $("#productDropdown").empty().append('<option value="">Select a product</option>').prop("disabled", true);
+                        $("#productNameTextbox").val("").prop("disabled", true);
+                        $("#serialTextbox").val("").prop("disabled", true);
+                        $("#addProductButton").prop("disabled", true);
+                    });
+
+                    
+                    $(document).on("click", ".btn-delete", function () {
+                        $(this).closest("tr").remove();
+                    });
+
+                });
+
+                $(document).on("click", ".btn-success", function () {
+                    var currentRow = $(this).closest("tr");
+                    
+                    currentRow.find("input[type='text']").prop("disabled", false);
+                    currentRow.find(".btn-danger").prop("disabled", true);
+                    $(this).removeClass("btn-success").addClass("btn-primary").text("SAVE");
+                });
+
+                $(document).on("click", ".btn-primary", function () {
+                    var currentRow = $(this).closest("tr");
+                   
+                    currentRow.find("input[type='text']").prop("disabled", true);
+                    currentRow.find(".btn-danger").prop("disabled", false);
+                    $(this).removeClass("btn-primary").addClass("btn-success").text("EDIT");
+                });
+
         });
     });
     </script>
