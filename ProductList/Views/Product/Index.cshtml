@@ -21,6 +21,15 @@
 <br />
 <div class="row">
     <div class="col-md-4">
+
+        <div class="mb-3">
+            <label for="supplierDropdown" class="form-label">Supplier:</label>
+            @Html.DropDownListFor(model => model.SelectedSupplierId,
+                new SelectList(Model.Suppliers, "Id", "Name"),
+                "Select a supplier",
+                new { @id = "supplierDropdown", @class = "form-select" })
+        </div>
+
         <div class="mb-3">
             <label for="categoryDropdown" class="form-label">Category:</label>
             @Html.DropDownListFor(model => model.SelectedCategoryId,
@@ -35,15 +44,24 @@
               Enumerable.Empty<SelectListItem>(),
               "Select a product",
               new { @id = "productDropdown", @class = "form-select", disabled = "disabled" })
+        </div>      
+       
+    </div>
+
+    <div class="col-md-4">
+
+        <div class="mb-3">
+            <label for="productNameTextbox" class="form-label">Value:</label>
+            <input type="text" id="productNameTextbox" class="form-control" placeholder="Only numbers are allowed" />
         </div>
 
-        <label for="productNameTextbox" class="form-label">Value:</label>
-        <input type="text" id="productNameTextbox" class="form-control" placeholder="Only numbers are allowed" />
-        <div class="mb-3 d-grid gap-2" style="padding-top: 25px;">
-            <input type="button" id="addProductButton" value="Add" class="btn btn-primary" />
+        <div class="mb-3">
+            <label for="serialInput" class="form-label">Serial (max 10 digits):</label>
+            <input type="number" id="serialInput" class="form-control" maxlength="10" placeholder="Enter serial" disabled />
+            <div class="mb-3 d-grid gap-2" style="padding-top: 25px;">
+                <input type="button" id="addProductButton" value="Add" class="btn btn-primary" />
+            </div>
         </div>
-    </div>
-    <div class="col-md-4">
     </div>
 
     <div class="col-md-4">

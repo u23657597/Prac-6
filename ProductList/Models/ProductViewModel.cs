@@ -6,6 +6,7 @@ namespace ProductList.Models
         {
         public int SelectedCategoryId { get; set; }
         public int SelectedProductId { get; set; }
+        public int SelectedSupplierId { get; set; }
         public List<Category> Categories { get; set; }
         public List<Product> Products { get; set; }
         public List<Supplier> Suppliers { get; set; }
